@@ -651,7 +651,7 @@ function parseCommand(msg) {
     try {
       const response = await fetch('https://api.anthropic.com/v1/messages', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer GROQ_KEY_HERE' },
+        headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer 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' },
         body: JSON.stringify({
           model: 'claude-sonnet-4-20250514',
           max_tokens: 1000,
@@ -992,7 +992,7 @@ Keep responses under 3 sentences. Suggest voice commands when helpful.` }, ...ch
     try {
       const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer GROQ_KEY_HERE' },
+        headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer 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' },
         body: JSON.stringify({
           model: 'llama-3.3-70b-versatile',
           max_tokens: 1000,
