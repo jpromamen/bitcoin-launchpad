@@ -222,8 +222,83 @@
     <button class="tab" onclick="switchTab('buy',this)">💰 Buy</button>
     <button class="tab" onclick="switchTab('claim',this)">🎁 Claim</button>
     <button class="tab" onclick="switchTab('admin',this)">⚙️ Admin</button>
+<button class="tab" onclick="switchTab('dashboard',this)">📊 Dashboard</button>
   </div>
+<!-- DASHBOARD TAB -->
+  <div id="tab-dashboard" class="tab-section">
 
+    <!-- BTC PRICE -->
+    <div class="card" style="margin-bottom:20px;">
+      <div class="card-title"><div class="card-title-bar"></div> Bitcoin Market // Live Data</div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin-bottom:20px;">
+        <div style="background:var(--bg);padding:16px;text-align:center;">
+          <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">// BTC Price</div>
+          <div style="font-size:22px;font-weight:900;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;" id="btcPrice">Loading...</div>
+        </div>
+        <div style="background:var(--bg);padding:16px;text-align:center;">
+          <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">// 24h Change</div>
+          <div style="font-size:22px;font-weight:900;" id="btcChange">—</div>
+        </div>
+        <div style="background:var(--bg);padding:16px;text-align:center;">
+          <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">// Market Cap</div>
+          <div style="font-size:22px;font-weight:900;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;" id="btcMcap">—</div>
+        </div>
+        <div style="background:var(--bg);padding:16px;text-align:center;">
+          <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">// Fear & Greed</div>
+          <div style="font-size:22px;font-weight:900;" id="fearGreed">—</div>
+        </div>
+      </div>
+      <!-- MINI CHART -->
+      <div style="background:var(--bg);border:1px solid var(--border);padding:16px;position:relative;height:120px;overflow:hidden;">
+        <canvas id="btcChart" style="width:100%;height:100%;"></canvas>
+        <div style="position:absolute;top:8px;left:12px;font-size:10px;color:var(--muted);font-family:monospace;text-transform:uppercase;letter-spacing:1px;">// 7 Day BTC Price</div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px;">
+
+      <!-- TX HISTORY -->
+      <div class="card">
+        <div class="card-title"><div class="card-title-bar"></div> Transaction History</div>
+        <div id="txHistoryList" style="display:flex;flex-direction:column;gap:8px;max-height:320px;overflow-y:auto;">
+          <div style="text-align:center;color:var(--muted);font-size:12px;font-family:monospace;padding:30px;">// No transactions yet</div>
+        </div>
+      </div>
+
+      <!-- OPNET NEWS -->
+      <div class="card">
+        <div class="card-title"><div class="card-title-bar" style="background:var(--grad2)"></div> OPNet News // Live</div>
+        <div id="opnetNews" style="display:flex;flex-direction:column;gap:10px;max-height:320px;overflow-y:auto;">
+          <div style="text-align:center;color:var(--muted);font-size:12px;font-family:monospace;padding:30px;">// Loading news...</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- OPNET STATS -->
+    <div class="card">
+      <div class="card-title"><div class="card-title-bar"></div> OPNet Network Stats</div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);">
+        <div style="background:var(--bg);padding:16px;text-align:center;">
+          <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">// Current Block</div>
+          <div style="font-size:20px;font-weight:900;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;" id="dashBlock">—</div>
+        </div>
+        <div style="background:var(--bg);padding:16px;text-align:center;">
+          <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">// Network</div>
+          <div style="font-size:14px;font-weight:900;color:var(--c5);">OPNet Testnet</div>
+        </div>
+        <div style="background:var(--bg);padding:16px;text-align:center;">
+          <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">// Contracts</div>
+          <div style="font-size:20px;font-weight:900;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">3</div>
+        </div>
+        <div style="background:var(--bg);padding:16px;text-align:center;">
+          <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">// Status</div>
+          <div style="font-size:14px;font-weight:900;color:var(--c5);">● Online</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
   <div id="tab-sales" class="tab-section active">
     <div class="sale-card" onclick="switchTabDirect('buy')">
       <div class="sale-header">
@@ -731,6 +806,183 @@ Keep responses under 3 sentences when possible. You can suggest commands to the 
       setTimeout(() => p.remove(), 700);
     }
   });
+// ── DASHBOARD ──
+  let txHistoryData = [];
+
+  function addTxHistory(type, amount, status='success') {
+    txHistoryData.unshift({ type, amount, status, time: new Date().toLocaleTimeString(), date: new Date().toLocaleDateString() });
+    renderTxHistory();
+  }
+
+  function renderTxHistory() {
+    const list = document.getElementById('txHistoryList');
+    if (!list) return;
+    if (txHistoryData.length === 0) { list.innerHTML = '<div style="text-align:center;color:var(--muted);font-size:12px;font-family:monospace;padding:30px;">// No transactions yet</div>'; return; }
+    const colors = { 'BUY': 'var(--c3)', 'CLAIM': 'var(--c5)', 'REFUND': '#ff4444', 'CREATE SALE': 'var(--c4)', 'FINALIZE': 'var(--c2)' };
+    list.innerHTML = txHistoryData.map(tx => `
+      <div style="background:var(--bg);border:1px solid var(--border);border-left:2px solid ${colors[tx.type]||'var(--c1)'};padding:10px 14px;display:flex;justify-content:space-between;align-items:center;font-family:monospace;">
+        <div>
+          <div style="font-size:12px;font-weight:700;color:${colors[tx.type]||'var(--c1)'};">// ${tx.type}</div>
+          <div style="font-size:10px;color:var(--muted);margin-top:2px;">${tx.date} · ${tx.time}</div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-size:12px;font-weight:700;">${tx.amount}</div>
+          <div style="font-size:10px;color:var(--c5);">✓ ${tx.status}</div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // Patch sendTx to record history
+  const _origSendTx = sendTx;
+  async function sendTx(label) {
+    showToast('Confirm in OP_WALLET...', 'info');
+    try {
+      const provider = window.opnet || window.unisat;
+      await provider.sendBitcoin(LAUNCHPAD, 1000);
+      showToast('✓ ' + label + ' sent', 'success');
+      addTxHistory(label.toUpperCase(), '— tokens', 'confirmed');
+      confettiBurst();
+      return true;
+    } catch(e) { showToast('Cancelled', 'error'); addTxHistory(label.toUpperCase(), '— tokens', 'cancelled'); return false; }
+  }
+
+  // ── BTC PRICE ──
+  async function fetchBTCPrice() {
+    try {
+      const res = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true&include_market_cap=true');
+      const data = await res.json();
+      const btc = data.bitcoin;
+      document.getElementById('btcPrice').textContent = '$' + btc.usd.toLocaleString();
+      const change = btc.usd_24h_change.toFixed(2);
+      const changeEl = document.getElementById('btcChange');
+      changeEl.textContent = (change > 0 ? '+' : '') + change + '%';
+      changeEl.style.color = change > 0 ? 'var(--c5)' : '#ff4444';
+      const mcap = (btc.usd_market_cap / 1e9).toFixed(0);
+      document.getElementById('btcMcap').textContent = '$' + mcap + 'B';
+    } catch(e) { document.getElementById('btcPrice').textContent = 'N/A'; }
+  }
+
+  // ── BTC CHART ──
+  async function fetchBTCChart() {
+    try {
+      const res = await fetch('https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=7&interval=daily');
+      const data = await res.json();
+      const prices = data.prices.map(p => p[1]);
+      drawChart(prices);
+    } catch(e) {}
+  }
+
+  function drawChart(prices) {
+    const canvas = document.getElementById('btcChart');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    canvas.width = canvas.offsetWidth * window.devicePixelRatio;
+    canvas.height = canvas.offsetHeight * window.devicePixelRatio;
+    ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+    const w = canvas.offsetWidth, h = canvas.offsetHeight;
+    const min = Math.min(...prices), max = Math.max(...prices);
+    const pad = 20;
+    ctx.clearRect(0, 0, w, h);
+    // Gradient fill
+    const grad = ctx.createLinearGradient(0, 0, 0, h);
+    grad.addColorStop(0, 'rgba(123,47,247,0.3)');
+    grad.addColorStop(1, 'rgba(123,47,247,0)');
+    ctx.beginPath();
+    prices.forEach((p, i) => {
+      const x = pad + (i / (prices.length-1)) * (w - pad*2);
+      const y = h - pad - ((p - min) / (max - min)) * (h - pad*2);
+      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    });
+    ctx.strokeStyle = '#7b2ff7'; ctx.lineWidth = 2; ctx.stroke();
+    ctx.lineTo(pad + (w - pad*2), h); ctx.lineTo(pad, h); ctx.closePath();
+    ctx.fillStyle = grad; ctx.fill();
+    // Price labels
+    ctx.fillStyle = '#4a5568'; ctx.font = '10px monospace'; ctx.textAlign = 'right';
+    ctx.fillText('$' + Math.round(max/1000) + 'K', w - 4, pad + 10);
+    ctx.fillText('$' + Math.round(min/1000) + 'K', w - 4, h - pad);
+  }
+
+  // ── FEAR & GREED ──
+  async function fetchFearGreed() {
+    try {
+      const res = await fetch('https://api.alternative.me/fng/');
+      const data = await res.json();
+      const val = data.data[0].value;
+      const label = data.data[0].value_classification;
+      const el = document.getElementById('fearGreed');
+      el.textContent = val + ' · ' + label;
+      el.style.color = val > 60 ? 'var(--c5)' : val > 40 ? 'var(--orange)' : '#ff4444';
+    } catch(e) {}
+  }
+
+  // ── OPNET NEWS (via Bob AI) ──
+  async function fetchOPNetNews() {
+    const newsEl = document.getElementById('opnetNews');
+    if (!newsEl) return;
+    try {
+      const response = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 1000,
+          system: 'You are a crypto news assistant. Return ONLY a JSON array of 5 recent OPNet/Bitcoin L1 DeFi news items. Each item has: title (string), summary (string, max 15 words), time (string like "2h ago"), category (string: one of "OPNet", "Bitcoin", "DeFi"). No markdown, no explanation, just the JSON array.',
+          messages: [{ role: 'user', content: 'Give me 5 recent OPNet and Bitcoin L1 DeFi news items as JSON array.' }]
+        })
+      });
+      const data = await response.json();
+      const text = data.content[0].text.replace(/```json|```/g, '').trim();
+      const news = JSON.parse(text);
+      const catColors = { 'OPNet': 'var(--c1)', 'Bitcoin': 'var(--c3)', 'DeFi': 'var(--c5)' };
+      newsEl.innerHTML = news.map(n => `
+        <div style="background:var(--bg);border:1px solid var(--border);border-left:2px solid ${catColors[n.category]||'var(--c1)'};padding:12px 14px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+            <span style="font-size:10px;font-weight:700;color:${catColors[n.category]||'var(--c1)'};text-transform:uppercase;letter-spacing:1px;">${n.category}</span>
+            <span style="font-size:10px;color:var(--muted);font-family:monospace;">${n.time}</span>
+          </div>
+          <div style="font-size:12px;font-weight:700;margin-bottom:4px;">${n.title}</div>
+          <div style="font-size:11px;color:var(--muted);line-height:1.5;">${n.summary}</div>
+        </div>
+      `).join('');
+    } catch(e) {
+      newsEl.innerHTML = `
+        <div style="background:var(--bg);border:1px solid var(--border);border-left:2px solid var(--c1);padding:12px 14px;">
+          <div style="font-size:10px;color:var(--c1);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">OPNet</div>
+          <div style="font-size:12px;font-weight:700;">OPNet Testnet Live</div>
+          <div style="font-size:11px;color:var(--muted);">Bitcoin L1 smart contracts now available on testnet</div>
+        </div>
+        <div style="background:var(--bg);border:1px solid var(--border);border-left:2px solid var(--c3);padding:12px 14px;">
+          <div style="font-size:10px;color:var(--c3);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Bitcoin</div>
+          <div style="font-size:12px;font-weight:700;">Bitcoin DeFi Growing</div>
+          <div style="font-size:11px;color:var(--muted);">New protocols launching on Bitcoin Layer 1</div>
+        </div>
+        <div style="background:var(--bg);border:1px solid var(--border);border-left:2px solid var(--c5);padding:12px 14px;">
+          <div style="font-size:10px;color:var(--c5);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">DeFi</div>
+          <div style="font-size:12px;font-weight:700;">Vibecode Week 2 Submissions Open</div>
+          <div style="font-size:11px;color:var(--muted);">Build DeFi apps on OPNet for a chance to win</div>
+        </div>
+      `;
+    }
+  }
+
+  // Load dashboard data when tab opened
+  const _origSwitchTab = switchTab;
+  function switchTab(name, btn) {
+    document.querySelectorAll('.tab-section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('tab-' + name).classList.add('active');
+    btn.classList.add('active');
+    if (name === 'dashboard') {
+      fetchBTCPrice();
+      fetchBTCChart();
+      fetchFearGreed();
+      fetchOPNetNews();
+      const bn = document.getElementById('blockNum').textContent;
+      const db = document.getElementById('dashBlock');
+      if (db) db.textContent = bn;
+    }
+  }
 // Load voices
   window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
 </script>
