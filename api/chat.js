@@ -1,4 +1,3 @@
- 
 export const config = { runtime: 'edge' };
 
 export default async function handler(req) {
@@ -12,23 +11,28 @@ export default async function handler(req) {
     });
   }
 
-  const body = await req.json();
-
-  const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer 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'
-    },
-    body: JSON.stringify(body)
-  });
-
-  const data = await response.json();
-
-  return new Response(JSON.stringify(data), {
-    headers: {
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*'
-    }
-  });
+  try {
+    const body = await req.json();
+    const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer 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'
+      },
+      body: JSON.stringify(body)
+    });
+    const data = await response.json();
+    return new Response(JSON.stringify(data), {
+      status: 200,
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      }
+    });
+  } catch(e) {
+    return new Response(JSON.stringify({ error: e.message }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
+    });
+  }
 }
