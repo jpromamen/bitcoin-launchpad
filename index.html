@@ -653,9 +653,9 @@ function parseCommand(msg) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest' },
         body: JSON.stringify({
-          model: 'claude-sonnet-4-20250514',
+          model: 'llama-3.3-70b-versatile',
           max_tokens: 1000,
-          system: `You are Bob, an advanced AI assistant for BTCLaunch — the first token launchpad on Bitcoin Layer 1 built on OPNet. You are a deep expert on OPNet, Bitcoin L1 DeFi, and this launchpad. Be concise, helpful, and use a technical/futuristic tone.
+          messages: [{ role: 'system', content: `You are Bob, an advanced AI assistant for BTCLaunch — the first token launchpad on Bitcoin Layer 1 built on OPNet. Be concise, helpful, futuristic tone. You have deep knowledge of OPNet, Bitcoin L1 DeFi, and this launchpad contract: opt1sqqkm8w9zacez7zualxya0nn8xwjynvxpssdhuklg. Keep responses under 3 sentences.` }, ...chatHistory]
 
 == BTCLAUNCH APP ==
 - Launchpad contract: opt1sqqkm8w9zacez7zualxya0nn8xwjynvxpssdhuklg (OPNet Testnet)
