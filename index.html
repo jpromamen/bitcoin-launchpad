@@ -630,7 +630,7 @@
     if (m.includes('admin')) { switchTabDirect('admin'); appendMessage('BOB > Switching to Admin tab...', 'system'); bobSpeak('Admin panel opened. Owner only functions here.'); return true; }
     const amtMatch = m.match(/set amount (\d+(\.\d+)?)/);
     if (amtMatch) { document.getElementById('buyAmount').value = amtMatch[1]; document.getElementById('receiveAmount').textContent = (parseFloat(amtMatch[1])/0.001).toFixed(2) + ' tokens'; switchTabDirect('buy'); appendMessage('BOB > Amount set to ' + amtMatch[1], 'system'); bobSpeak('Amount set to ' + amtMatch[1] + ' tokens.'); return true; }
-    if (m.includes('disconnect') && !m.includes('connect')) { disconnect(); appendMessage('BOB > Wallet disconnected.', 'system'); bobSpeak('Wallet disconnected.'); return true; }
+    if (m.includes('disconnect')) { disconnect(); appendMessage('BOB > Wallet disconnected.', 'system'); bobSpeak('Wallet disconnected.'); return true; }
     if (m.includes('scroll top') || m.includes('go to top')) { window.scrollTo({top:0,behavior:'smooth'}); appendMessage('BOB > Scrolling to top...', 'system'); return true; }
     return false;
   }
