@@ -621,9 +621,10 @@
   }
 
   // ── COMMAND PARSER ──
-  function parseCommand(msg) {
+function parseCommand(msg) {
     const m = msg.toLowerCase().trim();
-    if (m.includes('connect wallet') || m.includes('connect my wallet')) { if (!walletConnected) connectWallet(); else bobSpeak('Your wallet is already connected!'); return true; }
+    if (m === 'disconnect' || m === 'disconnect wallet' || (m.includes('disconnect') && m.includes('wallet'))) { disconnect(); appendMessage('BOB > Wallet disconnected.', 'system'); bobSpeak('Wallet disconnected.'); return true; }
+    if ((m.includes('connect') && m.includes('wallet'))) { if (!walletConnected) connectWallet(); else bobSpeak('Your wallet is already connected!'); return true; }
     if (m.includes('show sales') || m.includes('active sales') || m.includes('live sales')) { switchTabDirect('sales'); appendMessage('BOB > Switching to Sales tab...', 'system'); bobSpeak('Here are the active sales!'); return true; }
     if (m.includes('buy') && (m.includes('tab') || m.includes('token') || m.includes('purchase'))) { switchTabDirect('buy'); appendMessage('BOB > Switching to Buy tab...', 'system'); bobSpeak('Here you can buy tokens!'); return true; }
     if (m.includes('claim')) { switchTabDirect('claim'); appendMessage('BOB > Switching to Claim tab...', 'system'); bobSpeak('Here you can claim your tokens or request a refund.'); return true; }
