@@ -563,5 +563,101 @@
     toastTimer = setTimeout(() => t.classList.remove('show'), 3500);
   }
 </script>
+<!-- BOB AI CHAT WIDGET -->
+<div id="chatBubble" onclick="toggleChat()" style="position:fixed;bottom:28px;left:28px;width:56px;height:56px;background:linear-gradient(135deg,#ff9900,#ff6600);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:999;box-shadow:0 4px 20px rgba(255,153,0,0.4);transition:all 0.2s;">
+  <span id="chatIcon" style="font-size:24px;">🤖</span>
+</div>
+
+<div id="chatWindow" style="display:none;position:fixed;bottom:100px;left:28px;width:360px;height:500px;background:#111;border:1px solid #333;border-radius:20px;z-index:998;box-shadow:0 8px 40px rgba(0,0,0,0.6);display:none;flex-direction:column;overflow:hidden;">
+  <div style="padding:16px 20px;border-bottom:1px solid #222;display:flex;align-items:center;justify-content:space-between;background:#0a0a0a;">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div style="width:36px;height:36px;background:linear-gradient(135deg,#ff9900,#ff6600);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;">🤖</div>
+      <div>
+        <div style="font-size:14px;font-weight:700;">Bob AI</div>
+        <div style="font-size:11px;color:#00d26a;">● Online</div>
+      </div>
+    </div>
+    <button onclick="toggleChat()" style="background:none;border:none;color:#555;font-size:20px;cursor:pointer;">✕</button>
+  </div>
+  <div id="chatMessages" style="flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;">
+    <div style="background:#1a1a1a;border-radius:12px;padding:12px 16px;font-size:13px;line-height:1.6;color:#ccc;max-width:90%;">
+      👋 Hey! I'm Bob, your Bitcoin Launchpad AI assistant!<br><br>I can help you with:<br>• How to participate in token sales<br>• Understanding soft/hard caps<br>• Claim & refund process<br>• OPNet & Bitcoin L1 DeFi
+    </div>
+  </div>
+  <div style="padding:12px 16px;border-top:1px solid #222;display:flex;gap:8px;">
+    <input type="text" id="chatInput" placeholder="Ask me anything..." onkeydown="if(event.key==='Enter')sendMessage()" style="flex:1;background:#0a0a0a;border:1px solid #2a2a2a;border-radius:10px;padding:10px 14px;color:#fff;font-size:13px;outline:none;" />
+    <button onclick="sendMessage()" style="background:linear-gradient(135deg,#ff9900,#ff6600);border:none;border-radius:10px;padding:10px 16px;color:#000;font-weight:700;cursor:pointer;font-size:14px;">➤</button>
+  </div>
+</div>
+
+<script>
+  let chatOpen = false;
+  let chatHistory = [];
+
+  function toggleChat() {
+    chatOpen = !chatOpen;
+    const win = document.getElementById('chatWindow');
+    const icon = document.getElementById('chatIcon');
+    win.style.display = chatOpen ? 'flex' : 'none';
+    icon.textContent = chatOpen ? '✕' : '🤖';
+    if (chatOpen) document.getElementById('chatInput').focus();
+  }
+
+  async function sendMessage() {
+    const input = document.getElementById('chatInput');
+    const msg = input.value.trim();
+    if (!msg) return;
+    input.value = '';
+
+    appendMessage(msg, 'user');
+    chatHistory.push({ role: 'user', content: msg });
+
+    const typing = appendMessage('...', 'bot', true);
+
+    try {
+      const response = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 1000,
+          system: `You are Bob, an AI assistant for Bitcoin Launchpad — the first token launchpad on Bitcoin Layer 1 built on OPNet. 
+
+Key info:
+- Launchpad contract: opt1sqqkm8w9zacez7zualxya0nn8xwjynvxpssdhuklg
+- Network: OPNet Testnet
+- Built by jpromamen using OPNet smart contracts
+- Features: Create sales, buy tokens, claim tokens, refund if soft cap not reached
+- Soft cap protection: if sale fails, investors get full refund
+- Hard cap: maximum amount that can be raised
+
+Be helpful, concise, and friendly. Focus on helping users understand how to use the launchpad and Bitcoin L1 DeFi.`,
+          messages: chatHistory
+        })
+      });
+
+      const data = await response.json();
+      const reply = data.content[0].text;
+      chatHistory.push({ role: 'assistant', content: reply });
+      typing.remove();
+      appendMessage(reply, 'bot');
+    } catch(e) {
+      typing.remove();
+      appendMessage('Sorry, I had trouble connecting. Please try again!', 'bot');
+    }
+  }
+
+  function appendMessage(text, role, isTyping = false) {
+    const container = document.getElementById('chatMessages');
+    const div = document.createElement('div');
+    div.style.cssText = role === 'user'
+      ? 'background:linear-gradient(135deg,#ff9900,#ff6600);border-radius:12px;padding:10px 14px;font-size:13px;line-height:1.6;color:#000;max-width:85%;align-self:flex-end;font-weight:600;'
+      : 'background:#1a1a1a;border-radius:12px;padding:12px 16px;font-size:13px;line-height:1.6;color:#ccc;max-width:90%;white-space:pre-wrap;';
+    div.textContent = text;
+    container.appendChild(div);
+    container.scrollTop = container.scrollHeight;
+    return div;
+  }
+</script>
 </body>
 </html>
