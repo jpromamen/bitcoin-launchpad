@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bitcoin Launchpad — OPNet</title>
+  <title>Bitcoin Launchpad � OPNet</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
@@ -183,17 +183,17 @@
 
 <nav>
   <div class="logo">
-    <div class="logo-icon">🚀</div>
+    <div class="logo-icon">??</div>
     <span class="logo-text">BTCLaunch</span>
   </div>
   <div class="nav-center">
     <div class="nav-badge">// OPNet Testnet</div>
-    <div class="block-live"><div class="live-dot"></div> Block <span id="blockNum">—</span></div>
+    <div class="block-live"><div class="live-dot"></div> Block <span id="blockNum">�</span></div>
   </div>
   <div class="wallet-area">
     <button class="connect-btn" id="connectBtn" onclick="toggleWallet()">[ Connect ]</button>
     <div class="dropdown" id="dropdown">
-      <div class="dropdown-addr" id="dropdownAddr">—</div>
+      <div class="dropdown-addr" id="dropdownAddr">�</div>
       <div class="dropdown-item" onclick="copyAddress()">// Copy Address</div>
       <div class="dropdown-item" onclick="viewOnScan()">// View on OPScan</div>
       <div class="dropdown-item red" onclick="disconnect()">// Disconnect</div>
@@ -203,26 +203,26 @@
 
 <main>
   <div class="hero">
-    <div class="hero-tag">// Bitcoin L1 · IDO Launchpad · OPNet</div>
+    <div class="hero-tag">// Bitcoin L1 � IDO Launchpad � OPNet</div>
     <h1><span class="h1-grad">Launch</span> on<br><span class="h1-grad2">Bitcoin.</span></h1>
-    <p>The first trustless token launchpad on Bitcoin Layer 1. Raise funds, distribute tokens, and refund investors — all on-chain. No bridges. No EVM.</p>
+    <p>The first trustless token launchpad on Bitcoin Layer 1. Raise funds, distribute tokens, and refund investors � all on-chain. No bridges. No EVM.</p>
   </div>
 
   <div class="stats-row">
-    <div class="stat-card"><div class="stat-label">// Total Raised</div><div class="stat-value" id="totalRaised">—</div><div class="stat-sub">across all sales</div></div>
+    <div class="stat-card"><div class="stat-label">// Total Raised</div><div class="stat-value" id="totalRaised">�</div><div class="stat-sub">across all sales</div></div>
     <div class="stat-card"><div class="stat-label">// Active Sales</div><div class="stat-value">1</div><div class="stat-sub">live right now</div></div>
     <div class="stat-card"><div class="stat-label">// Projects Launched</div><div class="stat-value">1</div><div class="stat-sub">on Bitcoin L1</div></div>
     <div class="stat-card"><div class="stat-label">// Refund Safety</div><div class="stat-value" style="background:linear-gradient(135deg,#00ff88,#00e5ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">ON</div><div class="stat-sub">soft cap protected</div></div>
   </div>
 
-  <div class="alert" id="walletAlert">⚡ Connect your OP_WALLET to participate in token sales on Bitcoin L1</div>
+  <div class="alert" id="walletAlert">? Connect your OP_WALLET to participate in token sales on Bitcoin L1</div>
 
   <div class="tabs">
-    <button class="tab active" onclick="switchTab('sales',this)">🔥 Sales</button>
-    <button class="tab" onclick="switchTab('buy',this)">💰 Buy</button>
-    <button class="tab" onclick="switchTab('claim',this)">🎁 Claim</button>
-    <button class="tab" onclick="switchTab('admin',this)">⚙️ Admin</button>
-<button class="tab" onclick="switchTab('dashboard',this)">📊 Dashboard</button>
+    <button class="tab active" onclick="switchTab('sales',this)">?? Sales</button>
+    <button class="tab" onclick="switchTab('buy',this)">?? Buy</button>
+    <button class="tab" onclick="switchTab('claim',this)">?? Claim</button>
+    <button class="tab" onclick="switchTab('admin',this)">?? Admin</button>
+<button class="tab" onclick="switchTab('dashboard',this)">?? Dashboard</button>
   </div>
 <!-- DASHBOARD TAB -->
   <div id="tab-dashboard" class="tab-section">
@@ -237,15 +237,15 @@
         </div>
         <div style="background:var(--bg);padding:16px;text-align:center;">
           <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">// 24h Change</div>
-          <div style="font-size:22px;font-weight:900;" id="btcChange">—</div>
+          <div style="font-size:22px;font-weight:900;" id="btcChange">�</div>
         </div>
         <div style="background:var(--bg);padding:16px;text-align:center;">
           <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">// Market Cap</div>
-          <div style="font-size:22px;font-weight:900;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;" id="btcMcap">—</div>
+          <div style="font-size:22px;font-weight:900;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;" id="btcMcap">�</div>
         </div>
         <div style="background:var(--bg);padding:16px;text-align:center;">
           <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">// Fear & Greed</div>
-          <div style="font-size:22px;font-weight:900;" id="fearGreed">—</div>
+          <div style="font-size:22px;font-weight:900;" id="fearGreed">�</div>
         </div>
       </div>
       <!-- MINI CHART -->
@@ -281,7 +281,7 @@
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);">
         <div style="background:var(--bg);padding:16px;text-align:center;">
           <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">// Current Block</div>
-          <div style="font-size:20px;font-weight:900;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;" id="dashBlock">—</div>
+          <div style="font-size:20px;font-weight:900;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;" id="dashBlock">�</div>
         </div>
         <div style="background:var(--bg);padding:16px;text-align:center;">
           <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">// Network</div>
@@ -293,7 +293,7 @@
         </div>
         <div style="background:var(--bg);padding:16px;text-align:center;">
           <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">// Status</div>
-          <div style="font-size:14px;font-weight:900;color:var(--c5);">● Online</div>
+          <div style="font-size:14px;font-weight:900;color:var(--c5);">? Online</div>
         </div>
       </div>
     </div>
@@ -304,9 +304,9 @@
       <div class="sale-header">
         <div>
           <div class="sale-name">Genesis Sale #001</div>
-          <div class="sale-desc">First ever token sale on Bitcoin Layer 1 · OPNet Testnet</div>
+          <div class="sale-desc">First ever token sale on Bitcoin Layer 1 � OPNet Testnet</div>
         </div>
-        <div class="sale-badge live">● Live</div>
+        <div class="sale-badge live">? Live</div>
       </div>
       <div class="sale-stats">
         <div class="sale-stat"><div class="sale-stat-label">// Price</div><div class="sale-stat-value">0.001</div></div>
@@ -317,7 +317,7 @@
         <div class="progress-header"><span>// Raise Progress</span><span id="saleProgress">0 / 10,000</span></div>
         <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:3%"></div></div>
       </div>
-      <div style="margin-top:14px;font-size:11px;color:var(--muted);font-family:monospace;">CONTRACT → <span style="color:var(--c3);">opt1sqqkm8w9zacez7zualxya0nn8xwjynvxpssdhuklg</span></div>
+      <div style="margin-top:14px;font-size:11px;color:var(--muted);font-family:monospace;">CONTRACT ? <span style="color:var(--c3);">opt1sqqkm8w9zacez7zualxya0nn8xwjynvxpssdhuklg</span></div>
     </div>
   </div>
 
@@ -326,8 +326,8 @@
       <div class="card">
         <div class="card-title"><div class="card-title-bar"></div> Buy Tokens</div>
         <div class="user-stats">
-          <div class="user-stat"><div class="user-stat-label">// Your Contribution</div><div class="user-stat-value" id="userContribution">—</div></div>
-          <div class="user-stat"><div class="user-stat-label">// Tokens Allocated</div><div class="user-stat-value" id="tokensAllocated">—</div></div>
+          <div class="user-stat"><div class="user-stat-label">// Your Contribution</div><div class="user-stat-value" id="userContribution">�</div></div>
+          <div class="user-stat"><div class="user-stat-label">// Tokens Allocated</div><div class="user-stat-value" id="tokensAllocated">�</div></div>
         </div>
         <div class="input-group">
           <label class="input-label">// Contribution Amount</label>
@@ -337,16 +337,16 @@
           <div class="info-row"><span class="info-key">Token Price</span><span class="info-val">0.001 / token</span></div>
           <div class="info-row"><span class="info-key">You Receive</span><span class="info-val grad" id="receiveAmount">0 tokens</span></div>
         </div>
-        <button class="btn btn-primary btn-full" id="buyBtn" onclick="buyTokens()" disabled>⚡ Execute Purchase</button>
+        <button class="btn btn-primary btn-full" id="buyBtn" onclick="buyTokens()" disabled>? Execute Purchase</button>
       </div>
       <div class="card">
         <div class="card-title"><div class="card-title-bar"></div> Sale Parameters</div>
-        <div class="info-row"><span class="info-key">Status</span><span class="info-val green">● LIVE</span></div>
+        <div class="info-row"><span class="info-key">Status</span><span class="info-val green">? LIVE</span></div>
         <div class="info-row"><span class="info-key">Token Price</span><span class="info-val">0.001</span></div>
         <div class="info-row"><span class="info-key">Soft Cap</span><span class="info-val">1,000 tokens</span></div>
         <div class="info-row"><span class="info-key">Hard Cap</span><span class="info-val">10,000 tokens</span></div>
         <div class="info-row"><span class="info-key">Total Raised</span><span class="info-val grad" id="saleRaised">0</span></div>
-        <div class="info-row"><span class="info-key">Refund Protection</span><span class="info-val green">✓ Active</span></div>
+        <div class="info-row"><span class="info-key">Refund Protection</span><span class="info-val green">? Active</span></div>
         <div class="info-row"><span class="info-key">Network</span><span class="info-val">OPNet Testnet</span></div>
       </div>
     </div>
@@ -356,21 +356,21 @@
     <div class="grid-2">
       <div class="card">
         <div class="card-title"><div class="card-title-bar"></div> Claim Tokens</div>
-        <div style="border:1px solid rgba(0,255,136,0.2);border-left:3px solid var(--c5);background:rgba(0,255,136,0.03);padding:14px 16px;margin-bottom:18px;font-size:12px;color:var(--c5);text-transform:uppercase;letter-spacing:1px;">✓ Claim available after sale finalization</div>
+        <div style="border:1px solid rgba(0,255,136,0.2);border-left:3px solid var(--c5);background:rgba(0,255,136,0.03);padding:14px 16px;margin-bottom:18px;font-size:12px;color:var(--c5);text-transform:uppercase;letter-spacing:1px;">? Claim available after sale finalization</div>
         <div class="user-stats">
-          <div class="user-stat"><div class="user-stat-label">// Contribution</div><div class="user-stat-value" id="claimContribution">—</div></div>
-          <div class="user-stat"><div class="user-stat-label">// Claimable</div><div class="user-stat-value" id="claimableTokens">—</div></div>
+          <div class="user-stat"><div class="user-stat-label">// Contribution</div><div class="user-stat-value" id="claimContribution">�</div></div>
+          <div class="user-stat"><div class="user-stat-label">// Claimable</div><div class="user-stat-value" id="claimableTokens">�</div></div>
         </div>
-        <button class="btn btn-secondary btn-full" id="claimBtn" onclick="claimTokens()" disabled>🎁 Claim Tokens</button>
+        <button class="btn btn-secondary btn-full" id="claimBtn" onclick="claimTokens()" disabled>?? Claim Tokens</button>
       </div>
       <div class="card">
         <div class="card-title"><div class="card-title-bar" style="background:linear-gradient(135deg,#ff4444,#ff6ec7)"></div> Refund</div>
-        <div style="border:1px solid rgba(255,68,68,0.2);border-left:3px solid #ff4444;background:rgba(255,68,68,0.03);padding:14px 16px;margin-bottom:18px;font-size:12px;color:#ff4444;text-transform:uppercase;letter-spacing:1px;">⚠ Available only if soft cap not reached</div>
+        <div style="border:1px solid rgba(255,68,68,0.2);border-left:3px solid #ff4444;background:rgba(255,68,68,0.03);padding:14px 16px;margin-bottom:18px;font-size:12px;color:#ff4444;text-transform:uppercase;letter-spacing:1px;">? Available only if soft cap not reached</div>
         <div class="user-stats">
-          <div class="user-stat"><div class="user-stat-label">// Refundable</div><div class="user-stat-value" id="refundAmount">—</div></div>
-          <div class="user-stat"><div class="user-stat-label">// Status</div><div class="user-stat-value" style="font-size:14px;color:var(--muted);" id="refundStatus">—</div></div>
+          <div class="user-stat"><div class="user-stat-label">// Refundable</div><div class="user-stat-value" id="refundAmount">�</div></div>
+          <div class="user-stat"><div class="user-stat-label">// Status</div><div class="user-stat-value" style="font-size:14px;color:var(--muted);" id="refundStatus">�</div></div>
         </div>
-        <button class="btn btn-danger btn-full" id="refundBtn" onclick="refundTokens()" disabled>💸 Request Refund</button>
+        <button class="btn btn-danger btn-full" id="refundBtn" onclick="refundTokens()" disabled>?? Request Refund</button>
       </div>
     </div>
   </div>
@@ -384,16 +384,16 @@
         <div class="input-group"><label class="input-label">// Soft Cap</label><input type="number" id="adminSoftCap" placeholder="1000" /></div>
         <div class="input-group"><label class="input-label">// Hard Cap</label><input type="number" id="adminHardCap" placeholder="10000" /></div>
       </div>
-      <button class="btn btn-primary btn-full" id="createSaleBtn" onclick="createSale()" disabled style="margin-bottom:12px;">🚀 Initialize Sale</button>
-      <button class="btn btn-secondary btn-full" id="finalizeBtn" onclick="finalizeSale()" disabled>✅ Finalize Sale</button>
+      <button class="btn btn-primary btn-full" id="createSaleBtn" onclick="createSale()" disabled style="margin-bottom:12px;">?? Initialize Sale</button>
+      <button class="btn btn-secondary btn-full" id="finalizeBtn" onclick="finalizeSale()" disabled>? Finalize Sale</button>
     </div>
   </div>
 
   <div class="contract-info">
     <div class="card-title"><div class="card-title-bar"></div> Deployed Contracts // OPNet Testnet</div>
-    <div class="contract-row"><span class="contract-key">// Launchpad Contract</span><span class="contract-val" onclick="copyText('opt1sqqkm8w9zacez7zualxya0nn8xwjynvxpssdhuklg')">opt1sqqkm8...huklg ⧉</span></div>
+    <div class="contract-row"><span class="contract-key">// Launchpad Contract</span><span class="contract-val" onclick="copyText('opt1sqqkm8w9zacez7zualxya0nn8xwjynvxpssdhuklg')">opt1sqqkm8...huklg ?</span></div>
     <div class="contract-row"><span class="contract-key">// Network</span><span class="contract-val">OPNet Testnet</span></div>
-    <div class="contract-row"><span class="contract-key">// GitHub</span><span class="contract-val" onclick="window.open('https://github.com/jpromamen/bitcoin-launchpad','_blank')">jpromamen/bitcoin-launchpad ↗</span></div>
+    <div class="contract-row"><span class="contract-key">// GitHub</span><span class="contract-val" onclick="window.open('https://github.com/jpromamen/bitcoin-launchpad','_blank')">jpromamen/bitcoin-launchpad ?</span></div>
   </div>
 
   <div class="how-it-works">
@@ -402,15 +402,15 @@
       <div class="step"><div class="step-num">01</div><div class="step-title">Connect</div><div class="step-desc">Connect OP_WALLET to OPNet Testnet to access Bitcoin L1 DeFi</div></div>
       <div class="step"><div class="step-num">02</div><div class="step-title">Contribute</div><div class="step-desc">Buy tokens in active sales directly on Bitcoin L1</div></div>
       <div class="step"><div class="step-num">03</div><div class="step-title">Finalize</div><div class="step-desc">Sale ends when hard cap hit or duration expires</div></div>
-      <div class="step"><div class="step-num">04</div><div class="step-title">Claim / Refund</div><div class="step-desc">Claim tokens if successful — full refund if soft cap missed</div></div>
+      <div class="step"><div class="step-num">04</div><div class="step-title">Claim / Refund</div><div class="step-desc">Claim tokens if successful � full refund if soft cap missed</div></div>
     </div>
   </div>
 </main>
 
 <footer>
-  Built on <a href="https://opnet.org" target="_blank">OPNet</a> — Bitcoin Layer 1 &nbsp;·&nbsp;
-  <a href="https://github.com/jpromamen/bitcoin-launchpad" target="_blank">GitHub</a> &nbsp;·&nbsp;
-  <a href="https://vibecode.finance" target="_blank">vibecode.finance</a> &nbsp;·&nbsp;
+  Built on <a href="https://opnet.org" target="_blank">OPNet</a> � Bitcoin Layer 1 &nbsp;�&nbsp;
+  <a href="https://github.com/jpromamen/bitcoin-launchpad" target="_blank">GitHub</a> &nbsp;�&nbsp;
+  <a href="https://vibecode.finance" target="_blank">vibecode.finance</a> &nbsp;�&nbsp;
   #opnetvibecode
 </footer>
 
@@ -418,14 +418,14 @@
 
 <!-- BOB INTRO BUBBLE -->
 <div id="bobIntro">
-  <span class="bob-close" onclick="dismissBobIntro()">✕</span>
-  <div class="bob-name">🤖 Hi, I'm Bob!</div>
+  <span class="bob-close" onclick="dismissBobIntro()">?</span>
+  <div class="bob-name">?? Hi, I'm Bob!</div>
   <div class="bob-msg">Your Bitcoin L1 AI assistant. Ask me anything or use voice commands!</div>
 </div>
 
 <!-- BOB CHAT BUTTON -->
 <div id="chatBubble" style="position:fixed;bottom:28px;left:28px;width:52px;height:52px;background:var(--grad);display:flex;align-items:center;justify-content:center;cursor:grab;z-index:999;box-shadow:0 0 30px rgba(123,47,247,0.5);transition:box-shadow 0.2s;clip-path:polygon(10% 0%,90% 0%,100% 10%,100% 90%,90% 100%,10% 100%,0% 90%,0% 10%);">
-  <span id="chatIcon" style="font-size:22px;">🤖</span>
+  <span id="chatIcon" style="font-size:22px;">??</span>
 </div>
 
 <!-- BOB CHAT WINDOW -->
@@ -433,10 +433,10 @@
   <div style="padding:14px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:var(--bg2);position:relative;">
     <div style="position:absolute;top:0;left:0;right:0;height:1px;background:var(--grad);"></div>
     <div style="display:flex;align-items:center;gap:10px;">
-      <div id="bobAvatar" style="width:32px;height:32px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:16px;clip-path:polygon(10% 0%,90% 0%,100% 10%,100% 90%,90% 100%,10% 100%,0% 90%,0% 10%);transition:all 0.3s;">🤖</div>
+      <div id="bobAvatar" style="width:32px;height:32px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:16px;clip-path:polygon(10% 0%,90% 0%,100% 10%,100% 90%,90% 100%,10% 100%,0% 90%,0% 10%);transition:all 0.3s;">??</div>
       <div>
         <div style="font-size:13px;font-weight:700;font-family:monospace;">BOB_AI.exe</div>
-        <div id="bobStatus" style="font-size:10px;color:var(--c5);">● ONLINE // Voice + Commands Enabled</div>
+        <div id="bobStatus" style="font-size:10px;color:var(--c5);">? ONLINE // Voice + Commands Enabled</div>
       </div>
     </div>
     <div style="display:flex;gap:6px;align-items:center;">
@@ -451,18 +451,18 @@
   <div id="chatMessages" style="flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;">
     <div style="background:var(--bg2);border:1px solid var(--border);border-left:2px solid var(--c1);padding:12px 14px;font-size:12px;line-height:1.7;color:#aaa;font-family:monospace;">
       <span style="color:var(--c3);">BOB &gt;</span> Systems online. Bitcoin Launchpad assistant ready.<br><br>
-      → Ask me anything about this launchpad<br>
-      → Say <span style="color:var(--c5);">"buy tokens"</span> to go to buy tab<br>
-      → Say <span style="color:var(--c5);">"connect wallet"</span> to connect<br>
-      → Say <span style="color:var(--c5);">"show sales"</span> to see active sales<br>
-      → Say <span style="color:var(--c5);">"set amount 100"</span> to set buy amount<br><br>
-      <span style="color:var(--c4);">🎤 Click mic to use voice commands!</span>
+      ? Ask me anything about this launchpad<br>
+      ? Say <span style="color:var(--c5);">"buy tokens"</span> to go to buy tab<br>
+      ? Say <span style="color:var(--c5);">"connect wallet"</span> to connect<br>
+      ? Say <span style="color:var(--c5);">"show sales"</span> to see active sales<br>
+      ? Say <span style="color:var(--c5);">"set amount 100"</span> to set buy amount<br><br>
+      <span style="color:var(--c4);">?? Click mic to use voice commands!</span>
     </div>
   </div>
   <div style="padding:12px 14px;border-top:1px solid var(--border);display:flex;gap:6px;">
-    <button id="micBtn" class="mic-btn" onclick="toggleMic()" title="Voice input">🎤</button>
+    <button id="micBtn" class="mic-btn" onclick="toggleMic()" title="Voice input">??</button>
     <input type="text" id="chatInput" placeholder="> Ask Bob or give command..." onkeydown="if(event.key==='Enter')sendMessage()" style="flex:1;background:var(--bg);border:1px solid rgba(123,47,247,0.3);padding:10px 14px;color:var(--c3);font-size:12px;outline:none;font-family:monospace;border-radius:0;" />
-    <button onclick="sendMessage()" style="background:var(--grad);border:none;padding:10px 16px;color:#000;font-weight:900;cursor:pointer;font-size:13px;font-family:monospace;">▶</button>
+    <button onclick="sendMessage()" style="background:var(--grad);border:none;padding:10px 16px;color:#000;font-weight:900;cursor:pointer;font-size:13px;font-family:monospace;">?</button>
   </div>
 </div>
 
@@ -478,7 +478,7 @@
   let isSpeaking = false;
   let bobIntroDismissed = false;
 
-  // ── BLOCK ──
+  // -- BLOCK --
   async function fetchBlock() {
     try {
       const res = await fetch('https://testnet.opnet.org', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({jsonrpc:'2.0',id:1,method:'btc_blockNumber',params:[]}) });
@@ -497,14 +497,14 @@
     if (!e.target.closest('#chatWindow') && !e.target.closest('#chatBubble') && !e.target.closest('#bobIntro')) { /* keep open */ }
   });
 
-  // ── BOB INTRO ──
+  // -- BOB INTRO --
   function dismissBobIntro() {
     document.getElementById('bobIntro').style.display = 'none';
     bobIntroDismissed = true;
   }
   setTimeout(() => { if (!bobIntroDismissed) dismissBobIntro(); }, 6000);
 
-  // ── WALLET ──
+  // -- WALLET --
   function toggleWallet() {
     if (!walletConnected) connectWallet();
     else { dropdownOpen = !dropdownOpen; document.getElementById('dropdown').classList.toggle('open', dropdownOpen); }
@@ -523,7 +523,7 @@
         document.getElementById('dropdownAddr').textContent = walletAddress;
         document.getElementById('walletAlert').style.display = 'none';
         enableButtons(); loadUserData();
-        showToast('✓ Wallet connected', 'success');
+        showToast('? Wallet connected', 'success');
         bobSpeak('Wallet connected! You can now participate in token sales.');
       }
     } catch(e) { document.getElementById('connectBtn').textContent = '[ Connect ]'; showToast('Connection cancelled', 'error'); }
@@ -547,7 +547,7 @@
 
   async function sendTx(label) {
     showToast('Confirm in OP_WALLET...', 'info');
-    try { const provider = window.opnet || window.unisat; await provider.sendBitcoin(LAUNCHPAD, 1000); showToast('✓ ' + label + ' sent', 'success'); return true; }
+    try { const provider = window.opnet || window.unisat; await provider.sendBitcoin(LAUNCHPAD, 1000); showToast('? ' + label + ' sent', 'success'); return true; }
     catch(e) { showToast('Cancelled', 'error'); return false; }
   }
 
@@ -572,25 +572,25 @@
     if (idx >= 0) tabs[idx].classList.add('active');
   }
 
-  function copyText(text) { navigator.clipboard.writeText(text).then(() => showToast('✓ Copied', 'success')); }
+  function copyText(text) { navigator.clipboard.writeText(text).then(() => showToast('? Copied', 'success')); }
   let toastTimer;
   function showToast(msg, type='info') {
     const t = document.getElementById('toast'); t.textContent = msg; t.className = 'toast show ' + type;
     clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), 3500);
   }
 
-  // ── BOB CHAT ──
+  // -- BOB CHAT --
   function toggleChat() {
     chatOpen = !chatOpen;
     const win = document.getElementById('chatWindow');
     const icon = document.getElementById('chatIcon');
     win.style.display = chatOpen ? 'flex' : 'none';
-    icon.textContent = chatOpen ? '✕' : '🤖';
+    icon.textContent = chatOpen ? '?' : '??';
     dismissBobIntro();
     if (chatOpen) document.getElementById('chatInput').focus();
   }
 
-  // ── VOICE INPUT ──
+  // -- VOICE INPUT --
   function toggleMic() {
     if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
       showToast('Voice not supported in this browser', 'error'); return;
@@ -599,14 +599,14 @@
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     recognition = new SpeechRecognition();
     recognition.lang = 'en-US'; recognition.continuous = false; recognition.interimResults = false;
-    recognition.onstart = () => { isListening = true; document.getElementById('micBtn').classList.add('listening'); document.getElementById('micBtn').textContent = '🔴'; document.getElementById('bobStatus').textContent = '● LISTENING...'; document.getElementById('bobStatus').style.color = '#ff4444'; };
+    recognition.onstart = () => { isListening = true; document.getElementById('micBtn').classList.add('listening'); document.getElementById('micBtn').textContent = '??'; document.getElementById('bobStatus').textContent = '? LISTENING...'; document.getElementById('bobStatus').style.color = '#ff4444'; };
     recognition.onresult = (e) => { const transcript = e.results[0][0].transcript; document.getElementById('chatInput').value = transcript; sendMessage(); };
-    recognition.onend = () => { isListening = false; document.getElementById('micBtn').classList.remove('listening'); document.getElementById('micBtn').textContent = '🎤'; document.getElementById('bobStatus').textContent = '● ONLINE // Voice + Commands Enabled'; document.getElementById('bobStatus').style.color = 'var(--c5)'; };
-    recognition.onerror = () => { isListening = false; document.getElementById('micBtn').classList.remove('listening'); document.getElementById('micBtn').textContent = '🎤'; showToast('Voice error. Try again.', 'error'); };
+    recognition.onend = () => { isListening = false; document.getElementById('micBtn').classList.remove('listening'); document.getElementById('micBtn').textContent = '??'; document.getElementById('bobStatus').textContent = '? ONLINE // Voice + Commands Enabled'; document.getElementById('bobStatus').style.color = 'var(--c5)'; };
+    recognition.onerror = () => { isListening = false; document.getElementById('micBtn').classList.remove('listening'); document.getElementById('micBtn').textContent = '??'; showToast('Voice error. Try again.', 'error'); };
     recognition.start();
   }
 
-  // ── TEXT TO SPEECH ──
+  // -- TEXT TO SPEECH --
   function bobSpeak(text) {
     if (!('speechSynthesis' in window)) return;
     window.speechSynthesis.cancel();
@@ -620,7 +620,7 @@
     window.speechSynthesis.speak(utter);
   }
 
-  // ── COMMAND PARSER ──
+  // -- COMMAND PARSER --
 function parseCommand(msg) {
     const m = msg.toLowerCase().trim();
     if (m === 'disconnect' || m === 'disconnect wallet' || (m.includes('disconnect') && m.includes('wallet'))) { disconnect(); appendMessage('BOB > Wallet disconnected.', 'system'); bobSpeak('Wallet disconnected.'); return true; }
@@ -655,95 +655,7 @@ function parseCommand(msg) {
         body: JSON.stringify({
           model: 'llama-3.3-70b-versatile',
           max_tokens: 1000,
-          messages: [{ role: 'system', content: `You are Bob, an advanced AI assistant for BTCLaunch — the first token launchpad on Bitcoin Layer 1 built on OPNet. Be concise, helpful, futuristic tone. You have deep knowledge of OPNet, Bitcoin L1 DeFi, and this launchpad contract: opt1sqqkm8w9zacez7zualxya0nn8xwjynvxpssdhuklg. Keep responses under 3 sentences.` }, ...chatHistory]
-
-BTCLAUNCH APP:
-- Launchpad contract: opt1sqqkm8w9zacez7zualxya0nn8xwjynvxpssdhuklg (OPNet Testnet)
-- Built by jpromamen for vibecode.finance Week 2 contest
-- Features: Create token sales, buy tokens with BTC, claim tokens if soft cap reached, full refund if soft cap not reached
-- Soft cap = minimum raise target. If not reached after finalization, all investors get full refund.
-- Hard cap = maximum raise. Sale stops when hard cap hit.
-- Owner creates sale with: price, duration (blocks), soft cap, hard cap
-- Users buy tokens during active sale period
-- After finalization: claim tokens (success) or refund (failure)
-
-OPNET DEEP KNOWLEDGE:
-- OPNet is a Bitcoin Layer 1 smart contract protocol — no sidechains, no bridges, no EVM
-- OPNet uses WASM-based smart contracts compiled from AssemblyScript/TypeScript
-- Contracts are deployed directly on Bitcoin using OP_NET transactions
-- OPNet uses Bitcoin UTXOs for state management and contract execution
-- Key OPNet base classes: OP_NET (custom contracts), OP_20 (fungible tokens like ERC-20)
-- StoredU256, StoredMapU256 used for on-chain state storage
-- Contract methods use u256 for all numeric values (Bitcoin precision)
-- OPNet Testnet is live, Mainnet launching soon
-- OP_WALLET is the official Chrome extension wallet for OPNet
-- MotoSwap is the DEX on OPNet (like Uniswap for Bitcoin L1)
-- NativeSwap allows swapping BTC natively on L1
-- OPNet vibecode.finance contest: Week 2 challenge is to build DeFi apps on OPNet
-
-BITCOIN L1 KNOWLEDGE:
-- Bitcoin is the original blockchain, launched 2009 by Satoshi Nakamoto
-- Bitcoin uses UTXO model (Unspent Transaction Outputs) unlike Ethereum's account model
-- Bitcoin block time: ~10 minutes. 1 week ≈ 1008 blocks.
-- Bitcoin has 21 million max supply, ~19.8 million currently mined
-- Bitcoin halving happens every 210,000 blocks (~4 years) — reduces block reward by 50%
-- Last halving: April 2024. Next halving: ~2028
-- Bitcoin Script is Turing-incomplete by design for security
-- OPNet extends Bitcoin with Turing-complete smart contracts WITHOUT changing Bitcoin's base layer
-- Bitcoin DeFi (BTCFi) is an emerging sector — OPNet is a pioneer
-- Ordinals, Runes, BRC-20 are other Bitcoin L1 token standards — OPNet is more powerful
-- Lightning Network: Layer 2 payment channels for fast BTC transfers
-- Taproot upgrade (2021) enabled more complex Bitcoin scripts
-
-DEFI KNOWLEDGE:
-- IDO = Initial DEX Offering — token sale on decentralized platform
-- Soft cap: minimum fundraising goal. If not met = refunds.
-- Hard cap: maximum fundraising goal. Prevents over-raising.
-- Vesting: tokens released over time to prevent dumps
-- TVL = Total Value Locked — measure of DeFi protocol size
-- APY = Annual Percentage Yield — annualized return including compounding
-- Liquidity pools: smart contracts holding token pairs for trading
-- Impermanent loss: risk of providing liquidity in volatile pairs
-- Gas fees: transaction costs on smart contract platforms
-
-VOICE/TEXT COMMANDS:
-- "connect wallet" — connects OP_WALLET
-- "disconnect" or "disconnect wallet" — disconnects wallet
-- "show sales" — goes to sales tab
-- "buy tokens" — goes to buy tab
-- "claim" — goes to claim/refund tab
-- "admin" — goes to admin tab
-- "set amount 100" — sets buy amount to 100
-- "go to top" — scrolls to top
-- "dashboard" — goes to dashboard tab
-
-Keep responses under 4 sentences. Be helpful and suggest relevant commands. If asked about price predictions, say you cannot predict prices but can explain fundamentals.`,
-          messages: [{ role: 'system', content: `You are Bob, an AI assistant for BTCLaunch — the first token launchpad on Bitcoin Layer 1 built on OPNet. Be concise, helpful, futuristic tone.
-
-DEEP KNOWLEDGE:
-OPNet is a Bitcoin Layer 1 smart contract platform. It enables trustless DeFi directly on Bitcoin without bridges or EVM. OPNet uses WASM-based smart contracts written in AssemblyScript/TypeScript compiled to WebAssembly.
-
-Bitcoin Basics: Bitcoin is the first and largest cryptocurrency. It uses Proof of Work consensus. Block time ~10 minutes. 21 million max supply. Halving every 210,000 blocks.
-
-OPNet Key Concepts:
-- OP_NET contracts run natively on Bitcoin L1
-- No wrapped tokens or bridges needed
-- Contracts deployed as WASM bytecode
-- OP_WALLET is the browser extension for interacting
-- Testnet available at testnet.opnet.org
-
-BTCLaunch Contract: opt1sqqkm8w9zacez7zualxya0nn8xwjynvxpssdhuklg
-- createSale: owner creates token sale with price, soft cap, hard cap, duration
-- buy: investors contribute BTC to active sale
-- finalizeSale: owner ends the sale
-- claim: investors claim tokens if soft cap reached
-- refund: investors get BTC back if soft cap not reached
-
-DeFi Concepts: IDO = Initial DEX Offering. Soft cap = minimum raise for success. Hard cap = maximum raise allowed. Launchpad = platform for new token sales.
-
-Voice commands: "connect wallet", "disconnect", "show sales", "buy tokens", "claim", "admin", "set amount 100", "go to top"
-
-Keep responses under 3 sentences. Suggest voice commands when helpful.` }, ...chatHistory]
+          messages: [{ role: 'system', content: 'You are Bob, AI assistant for BTCLaunch - the first Bitcoin L1 launchpad on OPNet. Contract: opt1sqqkm8w9zacez7zualxya0nn8xwjynvxpssdhuklg. Be concise and helpful.' }, ...chatHistory]
         })
       });
       const data = await response.json();
@@ -766,12 +678,12 @@ Keep responses under 3 sentences. Suggest voice commands when helpful.` }, ...ch
       div.textContent = text;
     } else {
       div.style.cssText = 'background:var(--bg2);border:1px solid var(--border);border-left:2px solid var(--c3);padding:12px 14px;font-size:12px;line-height:1.7;color:#aaa;font-family:monospace;white-space:pre-wrap;';
-      div.textContent = isTyping ? '⠋ ' + text : 'BOB > ' + text;
+      div.textContent = isTyping ? '? ' + text : 'BOB > ' + text;
     }
     container.appendChild(div);
     container.scrollTop = container.scrollHeight;
     return div;
-  }// ── DRAGGABLE BOB ──
+  }// -- DRAGGABLE BOB --
   const bubble = document.getElementById('chatBubble');
   let isDragging = false, dragOffsetX = 0, dragOffsetY = 0, dragMoved = false;
 
@@ -811,7 +723,7 @@ Keep responses under 3 sentences. Suggest voice commands when helpful.` }, ...ch
   // Remove onclick from bubble since we handle click in mouseup
   bubble.removeAttribute('onclick');
 
-  // ── CURSOR GRAVITY EFFECT ──
+  // -- CURSOR GRAVITY EFFECT --
   const cursorGlow = document.createElement('div');
   cursorGlow.style.cssText = `
     position: fixed; pointer-events: none; z-index: 0;
@@ -844,7 +756,7 @@ Keep responses under 3 sentences. Suggest voice commands when helpful.` }, ...ch
     cursorGlow2.style.left = mouseX + 'px';
     cursorGlow2.style.top = mouseY + 'px';
 
-    // Gravity pull on grid — distort background position
+    // Gravity pull on grid � distort background position
     const xPct = (mouseX / window.innerWidth * 100).toFixed(1);
     const yPct = (mouseY / window.innerHeight * 100).toFixed(1);
     document.body.style.setProperty('--mx', xPct + '%');
@@ -875,7 +787,7 @@ Keep responses under 3 sentences. Suggest voice commands when helpful.` }, ...ch
       setTimeout(() => p.remove(), 700);
     }
   });
-// ── DASHBOARD ──
+// -- DASHBOARD --
   let txHistoryData = [];
 
   function addTxHistory(type, amount, status='success') {
@@ -892,11 +804,11 @@ Keep responses under 3 sentences. Suggest voice commands when helpful.` }, ...ch
       <div style="background:var(--bg);border:1px solid var(--border);border-left:2px solid ${colors[tx.type]||'var(--c1)'};padding:10px 14px;display:flex;justify-content:space-between;align-items:center;font-family:monospace;">
         <div>
           <div style="font-size:12px;font-weight:700;color:${colors[tx.type]||'var(--c1)'};">// ${tx.type}</div>
-          <div style="font-size:10px;color:var(--muted);margin-top:2px;">${tx.date} · ${tx.time}</div>
+          <div style="font-size:10px;color:var(--muted);margin-top:2px;">${tx.date} � ${tx.time}</div>
         </div>
         <div style="text-align:right;">
           <div style="font-size:12px;font-weight:700;">${tx.amount}</div>
-          <div style="font-size:10px;color:var(--c5);">✓ ${tx.status}</div>
+          <div style="font-size:10px;color:var(--c5);">? ${tx.status}</div>
         </div>
       </div>
     `).join('');
@@ -909,14 +821,14 @@ Keep responses under 3 sentences. Suggest voice commands when helpful.` }, ...ch
     try {
       const provider = window.opnet || window.unisat;
       await provider.sendBitcoin(LAUNCHPAD, 1000);
-      showToast('✓ ' + label + ' sent', 'success');
-      addTxHistory(label.toUpperCase(), '— tokens', 'confirmed');
+      showToast('? ' + label + ' sent', 'success');
+      addTxHistory(label.toUpperCase(), '� tokens', 'confirmed');
       confettiBurst();
       return true;
-    } catch(e) { showToast('Cancelled', 'error'); addTxHistory(label.toUpperCase(), '— tokens', 'cancelled'); return false; }
+    } catch(e) { showToast('Cancelled', 'error'); addTxHistory(label.toUpperCase(), '� tokens', 'cancelled'); return false; }
   }
 
-  // ── BTC PRICE ──
+  // -- BTC PRICE --
   async function fetchBTCPrice() {
     try {
       const res = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true&include_market_cap=true');
@@ -932,7 +844,7 @@ Keep responses under 3 sentences. Suggest voice commands when helpful.` }, ...ch
     } catch(e) { document.getElementById('btcPrice').textContent = 'N/A'; }
   }
 
-  // ── BTC CHART ──
+  // -- BTC CHART --
   async function fetchBTCChart() {
     try {
       const res = await fetch('https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=7&interval=daily');
@@ -972,7 +884,7 @@ Keep responses under 3 sentences. Suggest voice commands when helpful.` }, ...ch
     ctx.fillText('$' + Math.round(min/1000) + 'K', w - 4, h - pad);
   }
 
-  // ── FEAR & GREED ──
+  // -- FEAR & GREED --
   async function fetchFearGreed() {
     try {
       const res = await fetch('https://api.alternative.me/fng/');
@@ -980,12 +892,12 @@ Keep responses under 3 sentences. Suggest voice commands when helpful.` }, ...ch
       const val = data.data[0].value;
       const label = data.data[0].value_classification;
       const el = document.getElementById('fearGreed');
-      el.textContent = val + ' · ' + label;
+      el.textContent = val + ' � ' + label;
       el.style.color = val > 60 ? 'var(--c5)' : val > 40 ? 'var(--orange)' : '#ff4444';
     } catch(e) {}
   }
 
-  // ── OPNET NEWS (via Bob AI) ──
+  // -- OPNET NEWS (via Bob AI) --
   async function fetchOPNetNews() {
     const newsEl = document.getElementById('opnetNews');
     if (!newsEl) return;
@@ -1057,3 +969,5 @@ Keep responses under 3 sentences. Suggest voice commands when helpful.` }, ...ch
 </script>
 </body>
 </html>
+
+
