@@ -189,13 +189,13 @@
     .toast.error { border-left-color: #ff4444; }
     .toast.info { border-left-color: var(--c3); }
 
-    /* BOB */
-    #bobIntro { position: fixed; bottom: 96px; left: 28px; background: var(--bg3); border: 1px solid var(--border); border-left: 3px solid var(--c1); padding: 14px 18px; border-radius: 4px; z-index: 997; max-width: 240px; font-size: 12px; font-family: var(--font-mono); animation: bobBounce 3s ease-in-out infinite; box-shadow: 0 0 30px rgba(123,47,247,0.2); }
-    #bobIntro::after { content: ''; position: absolute; bottom: -8px; left: 20px; width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; border-top: 8px solid var(--c1); }
-    @keyframes bobBounce { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-6px);} }
-    #bobIntro .bob-name { color: var(--c3); font-weight: 700; margin-bottom: 4px; }
-    #bobIntro .bob-msg { color: #aaa; line-height: 1.5; }
-    #bobIntro .bob-close { position: absolute; top: 6px; right: 8px; color: var(--muted); cursor: pointer; font-size: 11px; }
+    /* OPIE */
+    #opieIntro { position: fixed; bottom: 96px; left: 28px; background: var(--bg3); border: 1px solid var(--border); border-left: 3px solid var(--c1); padding: 14px 18px; border-radius: 4px; z-index: 997; max-width: 240px; font-size: 12px; font-family: var(--font-mono); animation: opieBounce 3s ease-in-out infinite; box-shadow: 0 0 30px rgba(123,47,247,0.2); }
+    #opieIntro::after { content: ''; position: absolute; bottom: -8px; left: 20px; width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; border-top: 8px solid var(--c1); }
+    @keyframes opieBounce { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-6px);} }
+    #opieIntro .opie-name { color: var(--c3); font-weight: 700; margin-bottom: 4px; }
+    #opieIntro .opie-msg { color: #aaa; line-height: 1.5; }
+    #opieIntro .opie-close { position: absolute; top: 6px; right: 8px; color: var(--muted); cursor: pointer; font-size: 11px; }
     .mic-btn { background: rgba(124,58,237,0.1); border: 1px solid rgba(124,58,237,0.3); padding: 10px 12px; color: var(--muted2); font-size: 14px; cursor: pointer; transition: all 0.2s; border-radius: var(--radius-xs); }
     .mic-btn:hover { border-color: var(--c3); color: var(--c3); }
     .mic-btn.listening { border-color: #ff4444; color: #ff4444; box-shadow: 0 0 15px rgba(255,68,68,0.3); animation: micPulse 1s infinite; }
@@ -472,27 +472,27 @@
   </div>
 </div>
 
-<!-- BOB INTRO -->
-<div id="bobIntro">
-  <span class="bob-close" onclick="dismissBobIntro()">✕</span>
-  <div class="bob-name">🤖 Hi, I'm Bob!</div>
-  <div class="bob-msg">Your Bitcoin L1 AI assistant. Ask me anything or use voice commands!</div>
+<!-- OPIE INTRO -->
+<div id="opieIntro">
+  <span class="opie-close" onclick="dismissOpieIntro()">✕</span>
+  <div class="opie-name">🤖 Hi, I'm Opie!</div>
+  <div class="opie-msg">Your Bitcoin L1 AI assistant. Ask me anything or use voice commands!</div>
 </div>
 
-<!-- BOB BUBBLE -->
+<!-- OPIE BUBBLE -->
 <div id="chatBubble" style="position:fixed;bottom:28px;left:28px;width:52px;height:52px;background:var(--grad);display:flex;align-items:center;justify-content:center;cursor:grab;z-index:999;box-shadow:0 0 30px rgba(123,47,247,0.5);transition:box-shadow 0.2s;border-radius:16px;">
   <span id="chatIcon" style="font-size:22px;">🤖</span>
 </div>
 
-<!-- BOB CHAT WINDOW -->
+<!-- OPIE CHAT WINDOW -->
 <div id="chatWindow" style="display:none;position:fixed;bottom:96px;left:28px;width:380px;height:560px;background:rgba(14,14,36,0.95);border:1px solid rgba(124,58,237,0.2);z-index:998;box-shadow:0 24px 80px rgba(0,0,0,0.6),0 0 0 1px rgba(124,58,237,0.1);flex-direction:column;overflow:hidden;border-radius:20px;backdrop-filter:blur(24px);">
   <div style="padding:14px 18px;border-bottom:1px solid rgba(124,58,237,0.15);display:flex;align-items:center;justify-content:space-between;background:rgba(124,58,237,0.06);position:relative;">
     <div style="position:absolute;top:0;left:0;right:0;height:1px;background:var(--grad);"></div>
     <div style="display:flex;align-items:center;gap:10px;">
-      <div id="bobAvatar" style="width:32px;height:32px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:16px;border-radius:16px;transition:all 0.3s;">🤖</div>
+      <div id="opieAvatar" style="width:32px;height:32px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:16px;border-radius:16px;transition:all 0.3s;">🤖</div>
       <div>
-        <div style="font-size:13px;font-weight:700;font-family:var(--font-body);">BOB_AI.exe</div>
-        <div id="bobStatus" style="font-size:10px;color:var(--c5);font-family:var(--font-body);">● ONLINE // Voice + Commands Enabled</div>
+        <div style="font-size:13px;font-weight:700;font-family:var(--font-body);">OPIE_AI.exe</div>
+        <div id="opieStatus" style="font-size:10px;color:var(--c5);font-family:var(--font-body);">● ONLINE // Voice + Commands Enabled</div>
       </div>
     </div>
     <div style="display:flex;gap:6px;align-items:center;">
@@ -502,7 +502,7 @@
   </div>
   <div id="chatMessages" style="flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;">
     <div style="background:var(--bg2);border:1px solid var(--border);border-left:2px solid var(--c1);padding:12px 14px;font-size:12px;line-height:1.8;color:#aaa;font-family:var(--font-mono);">
-      <span style="color:var(--c3);">BOB &gt;</span> Systems online. Bitcoin Launchpad assistant ready.<br><br>
+      <span style="color:var(--c3);">OPIE &gt;</span> Systems online. Bitcoin Launchpad assistant Opie ready.<br><br>
       → Ask me anything about this launchpad<br>
       → Say <span style="color:var(--c5);">"buy tokens"</span> to go to buy tab<br>
       → Say <span style="color:var(--c5);">"connect wallet"</span> to connect<br>
@@ -513,7 +513,7 @@
   </div>
   <div style="padding:12px 14px;border-top:1px solid var(--border);display:flex;gap:6px;">
     <button id="micBtn" class="mic-btn" onclick="toggleMic()" title="Voice input">🎤</button>
-    <input type="text" id="chatInput" placeholder="> Ask Bob or give command..." onkeydown="if(event.key==='Enter')sendMessage()" style="flex:1;background:rgba(10,10,26,0.8);border:1px solid rgba(124,58,237,0.2);padding:10px 14px;color:var(--c3);font-size:13px;outline:none;font-family:var(--font-body);border-radius:8px;" />
+    <input type="text" id="chatInput" placeholder="> Ask Opie or give a command..." onkeydown="if(event.key==='Enter')sendMessage()" style="flex:1;background:rgba(10,10,26,0.8);border:1px solid rgba(124,58,237,0.2);padding:10px 14px;color:var(--c3);font-size:13px;outline:none;font-family:var(--font-body);border-radius:8px;" />
     <button onclick="sendMessage()" style="background:var(--grad);border:none;padding:10px 16px;color:#fff;font-weight:700;cursor:pointer;font-size:13px;font-family:var(--font-body);border-radius:8px;box-shadow:0 4px 12px rgba(124,58,237,0.3);">▶</button>
   </div>
 </div>
@@ -522,7 +522,7 @@
   const LAUNCHPAD = 'opt1sqqkm8w9zacez7zualxya0nn8xwjynvxpssdhuklg';
   let walletConnected = false, walletAddress = '', walletBalance = 0;
   let dropdownOpen = false, chatOpen = false, chatHistory = [];
-  let recognition = null, isListening = false, bobIntroDismissed = false;
+  let recognition = null, isListening = false, opieIntroDismissed = false;
   let txHistoryData = [], lastTxHash = '', currentBlock = 0;
   const SALE_DURATION_BLOCKS = 1008;
   const SALE_START_BLOCK = 0; // will be set from chain
@@ -573,8 +573,8 @@
     if (!e.target.closest('.wallet-area')) { document.getElementById('dropdown').classList.remove('open'); dropdownOpen = false; }
   });
 
-  function dismissBobIntro() { document.getElementById('bobIntro').style.display = 'none'; bobIntroDismissed = true; }
-  setTimeout(() => { if (!bobIntroDismissed) dismissBobIntro(); }, 7000);
+  function dismissOpieIntro() { document.getElementById('opieIntro').style.display = 'none'; opieIntroDismissed = true; }
+  setTimeout(() => { if (!opieIntroDismissed) dismissOpieIntro(); }, 7000);
 
   function toggleWallet() {
     if (!walletConnected) connectWallet();
@@ -610,7 +610,7 @@
           document.getElementById('buyBalance').textContent = 'N/A';
         }
         showToast('✓ Wallet connected', 'success');
-        bobSpeak('Wallet connected! You can now participate in token sales on Bitcoin L1.');
+        opieSpeak('Wallet connected! You can now participate in token sales on Bitcoin L1.');
       }
     } catch(e) {
       document.getElementById('connectBtn').textContent = '[ Connect ]';
@@ -627,7 +627,7 @@
     document.getElementById('buyBalance').textContent = 'Connect wallet';
     disableButtons(); dropdownOpen = false;
     showToast('Disconnected', 'info');
-    appendMessage('BOB > Wallet disconnected.', 'system');
+    appendMessage('OPIE > Wallet disconnected.', 'system');
   }
 
   function copyAddress() { copyText(walletAddress); document.getElementById('dropdown').classList.remove('open'); }
@@ -687,7 +687,7 @@
             75: '75% reached! Almost at hard cap. This sale is on fire!',
             100: 'Hard cap reached! The Genesis Sale is fully subscribed! Amazing!'
           };
-          bobSpeak(msgs[m]);
+          opieSpeak(msgs[m]);
           showToast('🎯 ' + m + '% milestone reached!', 'success');
         }, 500);
       }
@@ -772,7 +772,7 @@
     chatOpen = !chatOpen;
     document.getElementById('chatIcon').textContent = chatOpen ? '✕' : '🤖';
     document.getElementById('chatWindow').style.display = chatOpen ? 'flex' : 'none';
-    dismissBobIntro();
+    dismissOpieIntro();
     if (chatOpen) document.getElementById('chatInput').focus();
   }
 
@@ -782,14 +782,14 @@
     const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
     recognition = new SR();
     recognition.lang = 'en-US'; recognition.continuous = false; recognition.interimResults = false;
-    recognition.onstart = () => { isListening = true; document.getElementById('micBtn').classList.add('listening'); document.getElementById('micBtn').textContent = '🔴'; document.getElementById('bobStatus').textContent = '● LISTENING...'; document.getElementById('bobStatus').style.color = '#ff4444'; };
+    recognition.onstart = () => { isListening = true; document.getElementById('micBtn').classList.add('listening'); document.getElementById('micBtn').textContent = '🔴'; document.getElementById('opieStatus').textContent = '● LISTENING...'; document.getElementById('opieStatus').style.color = '#ff4444'; };
     recognition.onresult = (e) => { document.getElementById('chatInput').value = e.results[0][0].transcript; sendMessage(); };
-    recognition.onend = () => { isListening = false; document.getElementById('micBtn').classList.remove('listening'); document.getElementById('micBtn').textContent = '🎤'; document.getElementById('bobStatus').textContent = '● ONLINE // Voice + Commands Enabled'; document.getElementById('bobStatus').style.color = 'var(--c5)'; };
+    recognition.onend = () => { isListening = false; document.getElementById('micBtn').classList.remove('listening'); document.getElementById('micBtn').textContent = '🎤'; document.getElementById('opieStatus').textContent = '● ONLINE // Voice + Commands Enabled'; document.getElementById('opieStatus').style.color = 'var(--c5)'; };
     recognition.onerror = () => { isListening = false; document.getElementById('micBtn').classList.remove('listening'); document.getElementById('micBtn').textContent = '🎤'; showToast('Voice error. Try again.', 'error'); };
     recognition.start();
   }
 
-  function bobSpeak(text) {
+  function opieSpeak(text) {
     if (!('speechSynthesis' in window)) return;
     window.speechSynthesis.cancel();
     const utter = new SpeechSynthesisUtterance(text);
@@ -797,25 +797,25 @@
     const voices = window.speechSynthesis.getVoices();
     const preferred = voices.find(v => v.name.includes('Google') || v.name.includes('Microsoft') || v.lang === 'en-US');
     if (preferred) utter.voice = preferred;
-    utter.onstart = () => { document.getElementById('speakingDots').classList.add('show'); document.getElementById('bobAvatar').style.background = 'linear-gradient(135deg,#ff6ec7,#7b2ff7)'; };
-    utter.onend = () => { document.getElementById('speakingDots').classList.remove('show'); document.getElementById('bobAvatar').style.background = 'var(--grad)'; };
+    utter.onstart = () => { document.getElementById('speakingDots').classList.add('show'); document.getElementById('opieAvatar').style.background = 'linear-gradient(135deg,#ff6ec7,#7b2ff7)'; };
+    utter.onend = () => { document.getElementById('speakingDots').classList.remove('show'); document.getElementById('opieAvatar').style.background = 'var(--grad)'; };
     window.speechSynthesis.speak(utter);
   }
 
   function parseCommand(msg) {
     const m = msg.toLowerCase().trim();
     if (m === 'disconnect' || m === 'disconnect wallet' || (m.includes('disconnect') && m.includes('wallet'))) { disconnect(); return true; }
-    if (m.includes('connect') && m.includes('wallet') && !m.includes('dis')) { if (!walletConnected) connectWallet(); else bobSpeak('Wallet already connected!'); return true; }
-    if (m.includes('show sales') || m.includes('active sales') || m.includes('live sales') || m === 'sales') { switchTabDirect('sales'); appendMessage('BOB > Switching to Sales tab...', 'system'); bobSpeak('Here are the active sales!'); return true; }
-    if (m.includes('buy') && (m.includes('tab') || m.includes('token') || m.includes('purchase'))) { switchTabDirect('buy'); appendMessage('BOB > Switching to Buy tab...', 'system'); bobSpeak('Here you can buy tokens!'); return true; }
-    if (m.includes('claim') && !m.includes('refund')) { switchTabDirect('claim'); appendMessage('BOB > Switching to Claim tab...', 'system'); bobSpeak('Here you can claim tokens or request a refund.'); return true; }
-    if (m.includes('admin')) { switchTabDirect('admin'); appendMessage('BOB > Switching to Admin tab...', 'system'); bobSpeak('Admin panel opened.'); return true; }
-    if (m.includes('dashboard') || m.includes('market') || m.includes('price')) { switchTabDirect('dashboard'); appendMessage('BOB > Opening Dashboard...', 'system'); bobSpeak('Here is the live market dashboard!'); return true; }
-    if (m.includes('share') || m.includes('link')) { shareApp(); appendMessage('BOB > Share link copied to clipboard!', 'system'); return true; }
-    if (m.includes('balance')) { appendMessage('BOB > Your balance: ' + (walletConnected ? walletBalance.toFixed(6) + ' BTC' : 'Connect wallet first'), 'system'); return true; }
+    if (m.includes('connect') && m.includes('wallet') && !m.includes('dis')) { if (!walletConnected) connectWallet(); else opieSpeak('Wallet already connected!'); return true; }
+    if (m.includes('show sales') || m.includes('active sales') || m.includes('live sales') || m === 'sales') { switchTabDirect('sales'); appendMessage('OPIE > Switching to Sales tab...', 'system'); opieSpeak('Here are the active sales!'); return true; }
+    if (m.includes('buy') && (m.includes('tab') || m.includes('token') || m.includes('purchase'))) { switchTabDirect('buy'); appendMessage('OPIE > Switching to Buy tab...', 'system'); opieSpeak('Here you can buy tokens!'); return true; }
+    if (m.includes('claim') && !m.includes('refund')) { switchTabDirect('claim'); appendMessage('OPIE > Switching to Claim tab...', 'system'); opieSpeak('Here you can claim tokens or request a refund.'); return true; }
+    if (m.includes('admin')) { switchTabDirect('admin'); appendMessage('OPIE > Switching to Admin tab...', 'system'); opieSpeak('Admin panel opened.'); return true; }
+    if (m.includes('dashboard') || m.includes('market') || m.includes('price')) { switchTabDirect('dashboard'); appendMessage('OPIE > Opening Dashboard...', 'system'); opieSpeak('Here is the live market dashboard!'); return true; }
+    if (m.includes('share') || m.includes('link')) { shareApp(); appendMessage('OPIE > Share link copied to clipboard!', 'system'); return true; }
+    if (m.includes('balance')) { appendMessage('OPIE > Your balance: ' + (walletConnected ? walletBalance.toFixed(6) + ' BTC' : 'Connect wallet first'), 'system'); return true; }
     const amtMatch = m.match(/set amount (\d+(\.\d+)?)/);
-    if (amtMatch) { document.getElementById('buyAmount').value = amtMatch[1]; document.getElementById('receiveAmount').textContent = (parseFloat(amtMatch[1])/0.001).toFixed(2) + ' tokens'; switchTabDirect('buy'); appendMessage('BOB > Amount set to ' + amtMatch[1], 'system'); bobSpeak('Amount set to ' + amtMatch[1] + '.'); return true; }
-    if (m.includes('scroll top') || m.includes('go to top')) { window.scrollTo({top:0,behavior:'smooth'}); appendMessage('BOB > Scrolling to top...', 'system'); return true; }
+    if (amtMatch) { document.getElementById('buyAmount').value = amtMatch[1]; document.getElementById('receiveAmount').textContent = (parseFloat(amtMatch[1])/0.001).toFixed(2) + ' tokens'; switchTabDirect('buy'); appendMessage('OPIE > Amount set to ' + amtMatch[1], 'system'); opieSpeak('Amount set to ' + amtMatch[1] + '.'); return true; }
+    if (m.includes('scroll top') || m.includes('go to top')) { window.scrollTo({top:0,behavior:'smooth'}); appendMessage('OPIE > Scrolling to top...', 'system'); return true; }
     return false;
   }
 
@@ -837,7 +837,7 @@
           max_tokens: 1000,
           messages: [{
             role: 'system',
-            content: `You are Bob, the AI assistant for BTCLaunch — the first token launchpad on Bitcoin Layer 1 built on OPNet protocol. You have deep expertise in: OPNet (Bitcoin L1 smart contracts using WASM, no bridges, no EVM), Bitcoin fundamentals (UTXO model, 10min blocks, 21M supply, halving), DeFi concepts (IDO, soft cap, hard cap, launchpad mechanics), and this app's contract (${LAUNCHPAD}). Current wallet: ${walletConnected ? walletAddress : 'not connected'}. Current block: ${currentBlock}. Features: create sales, buy tokens, claim if soft cap reached, refund if not. Voice commands: connect wallet, disconnect, show sales, buy tokens, claim, admin, dashboard, share, balance, set amount X. Be concise (max 3 sentences), technical, helpful, and futuristic. Suggest relevant voice commands when appropriate.`
+            content: `You are Opie, a friendly and conversational AI assistant for BTCLaunch — the first token launchpad on Bitcoin Layer 1 built on OPNet protocol. You have deep expertise in: OPNet (Bitcoin L1 smart contracts using WASM, no bridges, no EVM), Bitcoin fundamentals (UTXO model, 10min blocks, 21M supply, halving), DeFi concepts (IDO, soft cap, hard cap, launchpad mechanics), and this app's contract (${LAUNCHPAD}). Current wallet: ${walletConnected ? walletAddress : 'not connected'}. Current block: ${currentBlock}. Features: create sales, buy tokens, claim if soft cap reached, refund if not. Voice commands: connect wallet, disconnect, show sales, buy tokens, claim, admin, dashboard, share, balance, set amount X. Be conversational and friendly — if someone says hi or hello, respond warmly like 'Hey! What can I help you with today?' Keep responses concise (max 3 sentences). Be technical when needed, suggest voice commands when relevant.`
           }, ...chatHistory]
         })
       });
@@ -846,7 +846,7 @@
       chatHistory.push({ role: 'assistant', content: reply });
       typing.remove();
       appendMessage(reply, 'bot');
-      bobSpeak(reply);
+      opieSpeak(reply);
     } catch(e) {
       typing.remove();
       appendMessage('Connection error. Check /api/chat endpoint.', 'bot');
@@ -864,14 +864,14 @@
       div.textContent = text;
     } else {
       div.style.cssText = 'background:var(--bg2);border:1px solid var(--border);border-left:2px solid var(--c3);padding:12px 14px;font-size:12px;line-height:1.7;color:#aaa;font-family:var(--font-mono);white-space:pre-wrap;';
-      div.textContent = isTyping ? '⠋ ' + text : 'BOB > ' + text;
+      div.textContent = isTyping ? '⠋ ' + text : 'OPIE > ' + text;
     }
     container.appendChild(div);
     container.scrollTop = container.scrollHeight;
     return div;
   }
 
-  // DRAGGABLE BOB
+  // DRAGGABLE OPIE
   const bubble = document.getElementById('chatBubble');
   let isDragging = false, dragOffsetX = 0, dragOffsetY = 0, dragMoved = false;
   bubble.addEventListener('mousedown', (e) => { isDragging = true; dragMoved = false; dragOffsetX = e.clientX - bubble.getBoundingClientRect().left; dragOffsetY = e.clientY - bubble.getBoundingClientRect().top; bubble.style.cursor = 'grabbing'; e.preventDefault(); });
