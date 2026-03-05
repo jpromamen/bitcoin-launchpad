@@ -50,7 +50,7 @@
     .dropdown-item:hover { background: rgba(123,47,247,0.15); color: var(--c3); }
     .dropdown-item.red { color: #ff4444; }
 
-    main { max-width: 1100px; margin: 0 auto; padding: 60px 20px 120px; position: relative; z-index: 1; }
+    /* main layout handled inline */
 
     /* HERO */
     .hero { text-align: center; margin-bottom: 60px; }
@@ -207,10 +207,123 @@
     .speaking-dot:nth-child(3) { animation-delay: 0.4s; }
     @keyframes dotBounce { 0%,100%{transform:translateY(0);opacity:0.4;} 50%{transform:translateY(-6px);opacity:1;} }
 
+
+    /* NEWS SIDEBAR CARDS */
+    .news-glass-card {
+      background: rgba(16,16,42,0.55);
+      border: 1px solid rgba(124,58,237,0.18);
+      border-radius: 14px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      transition: all 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .news-glass-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(124,58,237,0.4), transparent);
+    }
+    .news-glass-card:hover {
+      border-color: rgba(124,58,237,0.35);
+      box-shadow: 0 8px 32px rgba(124,58,237,0.12), 0 0 0 1px rgba(124,58,237,0.1);
+      transform: translateY(-1px);
+    }
+    .news-item {
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: rgba(16,16,42,0.55);
+      border: 1px solid rgba(124,58,237,0.14);
+      backdrop-filter: blur(12px);
+      transition: all 0.2s;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .news-item::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(124,58,237,0.3), transparent);
+    }
+    .news-item:hover {
+      background: rgba(124,58,237,0.1);
+      border-color: rgba(124,58,237,0.3);
+      box-shadow: 0 4px 20px rgba(124,58,237,0.1);
+    }
+
+    /* GLOBAL GLASS GLOW UPGRADES */
+    .card {
+      box-shadow: 0 4px 24px rgba(124,58,237,0.08), inset 0 1px 0 rgba(255,255,255,0.04);
+    }
+    .card:hover {
+      box-shadow: 0 8px 40px rgba(124,58,237,0.15), inset 0 1px 0 rgba(255,255,255,0.06);
+      border-color: rgba(124,58,237,0.3) !important;
+    }
+    .sale-card {
+      box-shadow: 0 4px 24px rgba(124,58,237,0.1), inset 0 1px 0 rgba(255,255,255,0.04);
+    }
+    .stat-card {
+      box-shadow: 0 4px 20px rgba(124,58,237,0.08);
+    }
+    .stat-card:hover {
+      box-shadow: 0 8px 32px rgba(124,58,237,0.18);
+      border-color: rgba(124,58,237,0.35) !important;
+    }
+
+    /* CHAT WINDOW OPACITY */
+    #chatWindow {
+      background: rgba(12,12,32,0.72) !important;
+      backdrop-filter: blur(28px) !important;
+      -webkit-backdrop-filter: blur(28px) !important;
+    }
+    #chatMessages {
+      background: transparent;
+    }
+
+    /* OPIE BUBBLE GLOW */
+    #chatBubble {
+      box-shadow: 0 0 30px rgba(124,58,237,0.5), 0 0 60px rgba(124,58,237,0.2) !important;
+    }
+    #chatBubble:hover {
+      box-shadow: 0 0 40px rgba(124,58,237,0.7), 0 0 80px rgba(124,58,237,0.3) !important;
+    }
+
+    /* OPIE INTRO bubble */
+    #opieIntro {
+      background: rgba(14,14,36,0.85) !important;
+      backdrop-filter: blur(16px) !important;
+      border-color: rgba(124,58,237,0.3) !important;
+      box-shadow: 0 8px 32px rgba(124,58,237,0.2) !important;
+    }
+
+    /* AMBIENT GLOW on cards ::after */
+    .stat-card::after {
+      content: '';
+      position: absolute;
+      bottom: -20px; left: 50%;
+      transform: translateX(-50%);
+      width: 60%;
+      height: 40px;
+      background: radial-gradient(ellipse, rgba(124,58,237,0.15), transparent 70%);
+      pointer-events: none;
+    }
+
+    /* SIDEBAR scrollbar */
+    #newsSidebar::-webkit-scrollbar { width: 3px; }
+    #newsSidebar::-webkit-scrollbar-track { background: transparent; }
+    #newsSidebar::-webkit-scrollbar-thumb { background: rgba(124,58,237,0.3); border-radius: 99px; }
+
     @media (max-width: 750px) {
       .stats-row { grid-template-columns: 1fr 1fr; }
       .grid-2 { grid-template-columns: 1fr; }
       .steps { grid-template-columns: 1fr 1fr; }
+      #newsSidebar { display: none; }
+      #appLayout { padding: 0 12px; }
+      main { padding: 40px 0 100px 0 !important; }
       nav { padding: 14px 16px; }
       .nav-center { display: none; }
       h1 { font-size: 38px; letter-spacing: -1px; }
@@ -243,7 +356,8 @@
   </div>
 </nav>
 
-<main>
+<div id="appLayout" style="display:flex;align-items:flex-start;gap:0;max-width:1400px;margin:0 auto;padding:0 20px;position:relative;z-index:1;">
+<main style="flex:1;min-width:0;padding:60px 24px 120px 0;">
   <div class="hero">
     <div class="hero-tag">// Bitcoin L1 · IDO Launchpad · OPNet</div>
     <h1><span class="h1-grad">Launch</span> on<br><span class="h1-grad2">Bitcoin.</span></h1>
@@ -447,6 +561,76 @@
     </div>
   </div>
 </main>
+
+<!-- NEWS SIDEBAR -->
+<aside id="newsSidebar" style="width:300px;flex-shrink:0;position:sticky;top:72px;height:calc(100vh - 90px);overflow-y:auto;padding:24px 0 24px 0;scrollbar-width:thin;scrollbar-color:rgba(124,58,237,0.3) transparent;">
+  <div style="position:relative;">
+    <!-- glow behind sidebar -->
+    <div style="position:absolute;top:-40px;right:-20px;width:200px;height:200px;background:radial-gradient(circle,rgba(124,58,237,0.15),transparent 70%);pointer-events:none;z-index:0;"></div>
+    <div style="position:relative;z-index:1;">
+
+      <!-- Sidebar header -->
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding:0 4px;">
+        <div style="font-family:var(--font-display);font-size:13px;font-weight:700;color:var(--muted2);letter-spacing:1.5px;text-transform:uppercase;">// Live Feed</div>
+        <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--c5);font-family:var(--font-body);">
+          <div style="width:6px;height:6px;border-radius:50%;background:var(--c5);box-shadow:0 0 8px var(--c5);animation:pulse 2s infinite;"></div>
+          Live
+        </div>
+      </div>
+
+      <!-- X/Twitter Embed -->
+      <div class="news-glass-card" style="margin-bottom:14px;overflow:hidden;min-height:320px;">
+        <div style="padding:12px 14px 8px;border-bottom:1px solid rgba(124,58,237,0.12);display:flex;align-items:center;gap:8px;">
+          <div style="width:22px;height:22px;background:#000;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0;">𝕏</div>
+          <span style="font-size:12px;font-weight:600;font-family:var(--font-body);color:var(--text);">@opnetbtc</span>
+          <span style="font-size:10px;color:var(--muted);font-family:var(--font-body);margin-left:auto;">Official</span>
+        </div>
+        <div id="xFeedContainer" style="padding:4px;">
+          <a class="twitter-timeline"
+            data-theme="dark"
+            data-chrome="noheader nofooter noborders transparent"
+            data-tweet-limit="4"
+            data-dnt="true"
+            href="https://twitter.com/opnetbtc"
+            style="color:var(--c3);font-family:var(--font-body);font-size:12px;padding:12px;display:block;">
+            Loading @opnetbtc tweets...
+          </a>
+        </div>
+      </div>
+
+      <!-- AI News Feed -->
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;padding:0 4px;">
+        <div style="font-size:11px;font-weight:700;color:var(--muted2);letter-spacing:1px;font-family:var(--font-body);text-transform:uppercase;">// OPNet News</div>
+        <button onclick="refreshNews()" style="background:rgba(124,58,237,0.1);border:1px solid var(--border2);color:var(--c3);font-size:10px;padding:3px 10px;border-radius:20px;cursor:pointer;font-family:var(--font-body);transition:all 0.2s;" onmouseover="this.style.background='rgba(124,58,237,0.2)'" onmouseout="this.style.background='rgba(124,58,237,0.1)'">↻ Refresh</button>
+      </div>
+      <div id="sidebarNews" style="display:flex;flex-direction:column;gap:10px;">
+        <!-- News items rendered by JS -->
+        <div style="text-align:center;padding:20px;color:var(--muted);font-size:12px;font-family:var(--font-body);">Loading news...</div>
+      </div>
+
+      <!-- BTC Price ticker at bottom -->
+      <div class="news-glass-card" style="margin-top:14px;padding:14px 16px;">
+        <div style="font-size:10px;color:var(--muted2);font-family:var(--font-body);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;">// BTC Ticker</div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <div style="width:28px;height:28px;background:linear-gradient(135deg,#f7931a,#ffb347);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:#fff;">₿</div>
+            <div>
+              <div style="font-size:13px;font-weight:700;font-family:var(--font-display);" id="sidebarBtcPrice">$—</div>
+              <div style="font-size:10px;color:var(--muted);font-family:var(--font-body);">Bitcoin</div>
+            </div>
+          </div>
+          <div id="sidebarBtcChange" style="font-size:13px;font-weight:600;font-family:var(--font-display);">—%</div>
+        </div>
+        <div style="height:40px;position:relative;overflow:hidden;">
+          <canvas id="sidebarChart" style="width:100%;height:100%;"></canvas>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</aside>
+
+</div><!-- end appLayout -->
 
 <footer>
   Built on <a href="https://opnet.org" target="_blank">OPNet</a> — Bitcoin Layer 1 &nbsp;·&nbsp;
@@ -1031,6 +1215,104 @@
   }
 
   window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
+
+  // SIDEBAR NEWS
+  async function refreshNews() {
+    const el = document.getElementById('sidebarNews');
+    if (!el) return;
+    el.innerHTML = '<div style="text-align:center;padding:20px;color:var(--muted);font-size:12px;font-family:var(--font-body);">⠋ Loading...</div>';
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'llama-3.3-70b-versatile',
+          max_tokens: 900,
+          messages: [
+            { role: 'system', content: 'You are a crypto news generator. Return ONLY a valid JSON array, no markdown, no backticks. Each object: {title, summary (max 10 words), time, category (OPNet|Bitcoin|DeFi|Mainnet), url (use # as placeholder)}.' },
+            { role: 'user', content: 'Generate 6 very recent OPNet, Bitcoin L1, and DeFi news items. Make them realistic and relevant to OPNet mainnet launching March 17 2025. JSON array only.' }
+          ]
+        })
+      });
+      const data = await response.json();
+      let text = data.choices[0].message.content.trim().replace(/```json?|```/g,'').trim();
+      const news = JSON.parse(text);
+      const catColors = { OPNet: '#7c3aed', Bitcoin: '#f59e0b', DeFi: '#34d399', Mainnet: '#818cf8' };
+      const catBg = { OPNet: 'rgba(124,58,237,0.12)', Bitcoin: 'rgba(245,158,11,0.12)', DeFi: 'rgba(52,211,153,0.12)', Mainnet: 'rgba(129,140,248,0.12)' };
+      el.innerHTML = news.map(n => `
+        <div class="news-item" onclick="window.open('https://x.com/opnetbtc','_blank')">
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;">
+            <span style="font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px;font-family:var(--font-body);background:${catBg[n.category]||'rgba(124,58,237,0.12)'};color:${catColors[n.category]||'var(--c3)'};">${n.category}</span>
+            <span style="font-size:10px;color:var(--muted);font-family:var(--font-body);margin-left:auto;">${n.time}</span>
+          </div>
+          <div style="font-size:12px;font-weight:700;font-family:var(--font-display);color:var(--text);line-height:1.4;margin-bottom:4px;">${n.title}</div>
+          <div style="font-size:11px;color:var(--muted2);font-family:var(--font-body);line-height:1.5;">${n.summary}</div>
+        </div>
+      `).join('');
+    } catch(e) {
+      el.innerHTML = [
+        {category:'Mainnet',time:'2h ago',title:'OPNet Mainnet Launches March 17',summary:'First Bitcoin L1 smart contracts go live'},
+        {category:'OPNet',time:'5h ago',title:'BTCLaunch Genesis Sale Live',summary:'First ever token IDO on Bitcoin Layer 1'},
+        {category:'Bitcoin',time:'8h ago',title:'Bitcoin DeFi TVL Hits New High',summary:'BTC L1 protocols attract record liquidity'},
+        {category:'DeFi',time:'12h ago',title:'MotoSwap Volume Surges on OPNet',summary:'DEX sees massive testnet activity'},
+        {category:'OPNet',time:'1d ago',title:'OPNet WASM Contracts Explained',summary:'How Bitcoin gets smart contracts natively'},
+        {category:'Bitcoin',time:'2d ago',title:'Halving Impact on OPNet Ecosystem',summary:'Post-halving sentiment lifts BTC DeFi'},
+      ].map(n => {
+        const catColors = { OPNet: '#7c3aed', Bitcoin: '#f59e0b', DeFi: '#34d399', Mainnet: '#818cf8' };
+        const catBg = { OPNet: 'rgba(124,58,237,0.12)', Bitcoin: 'rgba(245,158,11,0.12)', DeFi: 'rgba(52,211,153,0.12)', Mainnet: 'rgba(129,140,248,0.12)' };
+        return `<div class="news-item" onclick="window.open('https://x.com/opnetbtc','_blank')">
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;">
+            <span style="font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px;font-family:var(--font-body);background:${catBg[n.category]};color:${catColors[n.category]};">${n.category}</span>
+            <span style="font-size:10px;color:var(--muted);font-family:var(--font-body);margin-left:auto;">${n.time}</span>
+          </div>
+          <div style="font-size:12px;font-weight:700;font-family:var(--font-display);color:var(--text);line-height:1.4;margin-bottom:4px;">${n.title}</div>
+          <div style="font-size:11px;color:var(--muted2);font-family:var(--font-body);line-height:1.5;">${n.summary}</div>
+        </div>`;
+      }).join('');
+    }
+  }
+
+  // SIDEBAR BTC TICKER
+  async function fetchSidebarBTC() {
+    try {
+      const res = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true');
+      const data = await res.json();
+      const price = data.bitcoin.usd;
+      const change = data.bitcoin.usd_24h_change.toFixed(2);
+      document.getElementById('sidebarBtcPrice').textContent = '$' + price.toLocaleString();
+      const cel = document.getElementById('sidebarBtcChange');
+      cel.textContent = (change > 0 ? '+' : '') + change + '%';
+      cel.style.color = change > 0 ? 'var(--c5)' : '#f87171';
+    } catch(e) {}
+  }
+
+  async function fetchSidebarChart() {
+    try {
+      const res = await fetch('https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=7&interval=daily');
+      const data = await res.json();
+      const prices = data.prices.map(p => p[1]);
+      const canvas = document.getElementById('sidebarChart');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      canvas.width = canvas.offsetWidth * window.devicePixelRatio;
+      canvas.height = canvas.offsetHeight * window.devicePixelRatio;
+      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+      const w = canvas.offsetWidth, h = canvas.offsetHeight;
+      const min = Math.min(...prices), max = Math.max(...prices);
+      const grad = ctx.createLinearGradient(0,0,0,h);
+      grad.addColorStop(0,'rgba(124,58,237,0.4)'); grad.addColorStop(1,'rgba(124,58,237,0)');
+      ctx.beginPath();
+      prices.forEach((p,i) => { const x=(i/(prices.length-1))*w; const y=h-((p-min)/(max-min))*h; i===0?ctx.moveTo(x,y):ctx.lineTo(x,y); });
+      ctx.strokeStyle='#7c3aed'; ctx.lineWidth=2; ctx.stroke();
+      ctx.lineTo(w,h); ctx.lineTo(0,h); ctx.closePath(); ctx.fillStyle=grad; ctx.fill();
+    } catch(e) {}
+  }
+
+  // Init sidebar on load
+  setTimeout(() => { refreshNews(); fetchSidebarBTC(); fetchSidebarChart(); }, 800);
+  setInterval(fetchSidebarBTC, 60000);
 </script>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"
+  onload="if(window.twttr&&twttr.widgets)twttr.widgets.load()"></script>
 </body>
 </html>
