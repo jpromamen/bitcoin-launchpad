@@ -17,7 +17,7 @@ export default async function handler(req) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer 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'
+        'Authorization': `Bearer ${process.env.GROQ_API_KEY}`,
       },
       body: JSON.stringify(body)
     });
